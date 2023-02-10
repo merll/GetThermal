@@ -29,6 +29,7 @@ iOSBuild | MacBuild {
     # Update version info in bundle
     QMAKE_POST_LINK += && /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $${MAC_VERSION}\" $$DESTDIR/$${TARGET}.app/Contents/Info.plist
     QMAKE_POST_LINK += && /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $${MAC_BUILD}\" $$DESTDIR/$${TARGET}.app/Contents/Info.plist
+    QMAKE_POST_LINK += && /usr/libexec/PlistBuddy -c \"Add :NSCameraUsageDescription string 'GetThermal wants to access the camera as requested by the user.'\" $$DESTDIR/$${TARGET}.app/Contents/Info.plist
 }
 
 WindowsBuild {
